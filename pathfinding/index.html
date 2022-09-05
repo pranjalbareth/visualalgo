@@ -1,0 +1,283 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/310/abacus_1f9ee.png"
+      type="image/x-icon"
+    />
+    <title>VisualAlgo - Visualize Sorting & Pathfinding algorithms</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link id="cssTheme" rel="stylesheet" href="public/styling/cssBasic.css" />
+    <link href="../sorting/main.css" rel="stylesheet" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="public/styling/c_icon.png"
+    />
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="header">
+        <div class="section nav" style="align-self: center">
+          <span
+            style="
+              color: white;
+              font-size: 22px;
+              font-weight: 300;
+              gap: 9px;
+              justify-content: center;
+              align-items: center;
+              display: flex;
+            "
+          >
+            <img
+              width="30px"
+              src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/310/abacus_1f9ee.png"
+              alt="</>"
+            />visualalgo</span
+          >
+        </div>
+        <div class="section">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                >Algorithms <span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li id="startButtonDijkstra">
+                  <a href="#">Dijkstra's Algorithm</a>
+                </li>
+                <li id="startButtonAStar2"><a href="#">A* Search</a></li>
+                <li id="startButtonGreedy">
+                  <a href="#">Greedy Best-first Search</a>
+                </li>
+                <li
+                  style="display: none; visibility: hidden"
+                  id="startButtonAStar"
+                >
+                  <a href="#">Swarm Algorithm</a>
+                </li>
+                <li
+                  style="display: none; visibility: hidden"
+                  id="startButtonAStar3"
+                >
+                  <a href="#">Convergent Swarm Algorithm</a>
+                </li>
+                <li
+                  style="display: none; visibility: hidden"
+                  id="startButtonBidirectional"
+                >
+                  <a href="#">Bidirectional Swarm Algorithm</a>
+                </li>
+                <li id="startButtonBFS">
+                  <a href="#">Breadth-first Search</a>
+                </li>
+                <li id="startButtonDFS"><a href="#">Depth-first Search</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                >Mazes &amp; Patterns <span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li
+                  style="display: none; visibility: hidden"
+                  id="startButtonCreateMazeThree"
+                >
+                  <a href="#">Recursive Division (vertical skew)</a>
+                </li>
+                <li
+                  style="display: none; visibility: hidden"
+                  id="startButtonCreateMazeFour"
+                >
+                  <a href="#">Recursive Division (horizontal skew)</a>
+                </li>
+                <li id="startButtonCreateMazeOne">
+                  <a href="#">Basic Maze</a>
+                </li>
+
+                <li id="startButtonCreateMazeTwo">
+                  <a href="#">Advance Maze</a>
+                </li>
+                <li
+                  style="display: none; visibility: hidden"
+                  id="startButtonCreateMazeWeights"
+                >
+                  <a href="#">Basic Weight Maze</a>
+                </li>
+                <li id="startStairDemonstration">
+                  <a href="#">Stair Pattern Maze</a>
+                </li>
+              </ul>
+            </li>
+            <li
+              style="display: none; visibility: hidden"
+              id="startButtonAddObject"
+            >
+              <a href="#">Add Bomb</a>
+            </li>
+            <li id="startButtonStart">
+              <button
+                id="actualStartButton"
+                class="btn btn-default navbar-btn"
+                type="button"
+                style="
+                  background-color: rgb(47, 221, 128);
+                  color: #12131e;
+                  font-weight: 600;
+                "
+              >
+                Visualize!
+              </button>
+            </li>
+            <li
+              id="startButtonClearBoard"
+              style="background-color: rgb(11 12 18)"
+            >
+              <a href="#">Clear Board</a>
+            </li>
+            <li
+              style="display: none; visibility: hidden"
+              id="startButtonClearWalls"
+            >
+              <a href="#">Clear Walls &amp; Weights</a>
+            </li>
+            <li
+              style="background-color: rgb(11 12 18)"
+              id="startButtonClearPath"
+            >
+              <a href="#">Clear Path</a>
+            </li>
+            <li class="dropdown">
+              <a
+                id="adjustSpeed"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                href="#"
+                >Speed: Fast <span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li id="adjustFast"><a href="#">Fast</a></li>
+                <li id="adjustAverage"><a href="#">Average</a></li>
+                <li id="adjustSlow"><a href="#">Slow</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="display: none" id="navbarDiv">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div style="display: none" class="navbar-header">
+            <a id="refreshButton" class="navbar-brand" href="#"
+              >Pathfinding Visualizer</a
+            >
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div id="tutorial">
+      <span
+        style="
+          color: rgb(27, 27, 27);
+          font-size: 22px;
+          font-weight: 600;
+          gap: 9px;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+        "
+      >
+        <img
+          width="30px"
+          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/310/abacus_1f9ee.png"
+          alt="</>"
+        />visualalgo</span
+      >
+      <p></p>
+      <ul style="text-align: left">
+        <li>&#10070; Drag the start and end nodes around the grid</li>
+        <li>&#10070; Select a Maze of choice from three different mazes</li>
+        <li>
+          &#10070; Click and drag to draw walls which cannot be navigated
+          through
+        </li>
+        <li>
+          &#10070; Choosea pathfinding algorithm from the algorithm dropdown
+        </li>
+      </ul>
+      <div>
+        <button
+          id="skipButton"
+          class="btn btn-default navbar-btn"
+          type="button"
+        >
+          Start
+        </button>
+      </div>
+    </div>
+    <div
+      style="
+        background-color: #12131e;
+        color: rgb(202, 202, 202);
+        font-size: smaller;
+        width: 100%;
+        height: 100%;
+      "
+      id="mainGrid"
+    >
+      <div
+        id="mainText"
+        style="display: flex; justify-content: center; margin: 25px"
+      >
+        <ul>
+          <li>
+            <div class="start"></div>
+            Start Node
+          </li>
+          <li>
+            <div class="target"></div>
+            Target Node
+          </li>
+          <li style="display: none" id="bombLegend">
+            <div class="object"></div>
+            Bomb Node
+          </li>
+          <li style="display: none" id="weightLegend">
+            <div class="borderlessWeight"></div>
+            Weight Node
+          </li>
+          <li>
+            <div class="unvisited"></div>
+            Unvisited Node
+          </li>
+          <li>
+            <div class="visited"></div>
+            <div class="visitedobject"></div>
+            Visited Nodes
+          </li>
+          <li>
+            <div class="shortest-path"></div>
+            Shortest-path Node
+          </li>
+          <li>
+            <div class="wall"></div>
+            Wall Node
+          </li>
+        </ul>
+      </div>
+      <div style="display: none" id="algorithmDescriptor"></div>
+      <table id="board" />
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="public/browser/bundle.js"></script>
+</html>
