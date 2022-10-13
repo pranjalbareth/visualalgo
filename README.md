@@ -1,2 +1,2 @@
 # 🧮 visualalgo
-Advanced Algorithm Visualiser
+Advanced  Algorithm Visualiser
